@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'contacts',
+    'dummy_data',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,3 +103,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://randomuser.me/
+RANDOM_USER_API_KEY = open(os.path.join(BASE_DIR, '../secret/random_user_api_key.txt')).read().strip()
+RANDOM_USER_SEED = '123' # note: not all integers work as a seed, but this one does
+RANDOM_USER_COUNT = '10000'
+RANDOM_USER_LOCALE = 'gb'
