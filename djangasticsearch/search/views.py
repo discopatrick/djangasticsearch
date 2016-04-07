@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+from haystack.generic_views import SearchView
+
+class ContactSearch(SearchView):
+	template_name = 'search/search-generic-view.html'
