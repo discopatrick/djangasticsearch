@@ -23,7 +23,7 @@ from contacts.views import ContactList
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/', include(haystack_urls)),
+    url(r'^haystack-default-search/', include(haystack_urls)),
     url(r'^contact/', include(contact_urls)),
     url(r'^$', ContactList.as_view()),
 ]
