@@ -38,8 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'haystack',
+
     'contacts',
     'dummy_data',
+    'search',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -109,3 +112,11 @@ RANDOM_USER_API_KEY = open(os.path.join(BASE_DIR, '../secret/random_user_api_key
 RANDOM_USER_SEED = '123' # note: not all integers work as a seed, but this one does
 RANDOM_USER_COUNT = '10000'
 RANDOM_USER_LOCALE = 'gb'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'contacts_index',
+    },
+}
