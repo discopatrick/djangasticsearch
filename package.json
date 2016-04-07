@@ -1,0 +1,11 @@
+{
+  "name": "djangasticsearch",
+  "version": "0.1.0",
+  "author": "discopatrick",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.0.5",
+    "gulp-shell": "^0.5.2"
+  }
+}
