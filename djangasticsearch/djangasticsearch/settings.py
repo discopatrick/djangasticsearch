@@ -40,6 +40,7 @@ INSTALLED_APPS = (
 
     'haystack',
 
+    'djangasticsearch',
     'contacts',
     'dummy_data',
     'search',
@@ -106,6 +107,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '../static/'
 
 # https://randomuser.me/
 RANDOM_USER_API_KEY = open(os.path.join(BASE_DIR, '../secret/random_user_api_key.txt')).read().strip()

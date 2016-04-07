@@ -2,3 +2,8 @@ venv/
 *.sqlite3
 *.pyc
 node_modules/
+
+# we only want to ignore the static folder in the root of the project,
+# not the other static folders inside our apps.
+# therefore, we prefix this line with a '/'
+/static/
