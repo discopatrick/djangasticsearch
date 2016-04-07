@@ -5,7 +5,7 @@ import requests
 
 from django.db import migrations, models
 
-from django_elasticsearch import settings
+from djangasticsearch import settings
 
 def import_contacts(apps, schema_data):
 	Contact = apps.get_model('contacts', 'Contact')
