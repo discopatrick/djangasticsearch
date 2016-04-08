@@ -19,11 +19,13 @@ from django.contrib import admin
 import haystack.urls as haystack_urls
 
 import contacts.urls as contact_urls
+import search.urls as search_urls
 from contacts.views import ContactList
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/', include(haystack_urls)),
+    url(r'^haystack-default-search/', include(haystack_urls)),
+    url(r'^search/', include(search_urls)),
     url(r'^contact/', include(contact_urls)),
     url(r'^$', ContactList.as_view()),
 ]
