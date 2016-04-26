@@ -8,3 +8,4 @@ node_modules/
 # therefore, we prefix this line with a '/'
 /static/
 *.log
+*.log.*
