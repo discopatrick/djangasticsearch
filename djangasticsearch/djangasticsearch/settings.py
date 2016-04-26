@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'haystack',
+    'elasticstack',
 
     'djangasticsearch',
     'contacts',
@@ -117,7 +118,7 @@ RANDOM_USER_LOCALE = 'gb'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'ENGINE': 'elasticstack.backends.ConfigurableElasticSearchEngine',
         'URL': 'http://127.0.0.1:9200/',
         'INDEX_NAME': 'contacts_index',
     },
@@ -167,3 +168,61 @@ LOGGING = {
         }
     },
 }
+
+ELASTICSEARCH_INDEX_SETTINGS = {
+    'settings': {
+        "analysis": {
+            "analyzer": {
+                "synonym_analyzer" : {
+                    "type": "custom",
+                    "tokenizer" : "standard",
+                    "filter" : ["synonym"]
+                },
+                "ngram_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "lowercase",
+                    "filter": ["haystack_ngram", "synonym"]
+                },
+                "edgengram_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "lowercase",
+                    "filter": ["haystack_edgengram"]
+                }
+            },
+            "tokenizer": {
+                "haystack_ngram_tokenizer": {
+                    "type": "nGram",
+                    "min_gram": 3,
+                    "max_gram": 15,
+                },
+                "haystack_edgengram_tokenizer": {
+                    "type": "edgeNGram",
+                    "min_gram": 2,
+                    "max_gram": 15,
+                    "side": "front"
+                }
+            },
+            "filter": {
+                "haystack_ngram": {
+                    "type": "nGram",
+                    "min_gram": 3,
+                    "max_gram": 15
+                },
+                "haystack_edgengram": {
+                    "type": "edgeNGram",
+                    "min_gram": 2,
+                    "max_gram": 15
+                },
+                "synonym" : {
+                    "type" : "synonym",
+                    "ignore_case": "true",
+                    "synonyms_path" : "synonyms.txt"
+                }
+            }
+        }
+    }
+}
+
+ELASTICSEARCH_DEFAULT_ANALYZER = 'synonym_analyzer'
+
+ELASTICSEARCH_DEFAULT_NGRAM_SEARCH_ANALYZER = 'standard'
