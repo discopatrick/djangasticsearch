@@ -7,3 +7,4 @@ node_modules/
 # not the other static folders inside our apps.
 # therefore, we prefix this line with a '/'
 /static/
+*.log
