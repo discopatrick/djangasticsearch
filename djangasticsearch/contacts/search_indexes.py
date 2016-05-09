@@ -1,5 +1,5 @@
 from haystack import indexes
-from contacts.models import Contact
+from .models import Contact
 
 class ContactIndex(indexes.SearchIndex, indexes.Indexable):
 	text = indexes.CharField(document=True, use_template=True)
