@@ -12,13 +12,13 @@ def import_words(apps, schema_data):
 
 	for line in r.text.splitlines():
 		word = Word()
-		word.text = line
+		word.word_string = line
 		word.save()
 
 class Migration(migrations.Migration):
 
     dependencies = [
-    	('dummy_data', '0001_initial'),
+    	('dummy_data', '0001_import_contacts'),
         ('words', '0001_initial'),
     ]
 

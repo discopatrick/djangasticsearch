@@ -1,13 +1,12 @@
 from haystack import indexes
-from .models import Contact
+from .models import Word
 
-class ContactIndex(indexes.SearchIndex, indexes.Indexable):
+class WordIndex(indexes.SearchIndex, indexes.Indexable):
 	text = indexes.CharField(document=True, use_template=True)
-	first_name = indexes.CharField(model_attr='first_name')
-	last_name = indexes.CharField(model_attr='last_name')
+	word_string = indexes.CharField(model_attr='word_string')
 
 	def get_model(self):
-		return Contact
+		return Word
 
 	def index_queryset(self, using=None):
 		# return the queryset of objects that will be indexed.
