@@ -3,8 +3,8 @@ from contacts.models import Contact
 
 class ContactIndex(indexes.SearchIndex, indexes.Indexable):
 	text = indexes.CharField(document=True, use_template=True)
-	first_name = indexes.CharField()
-	last_name = indexes.CharField()
+	first_name = indexes.CharField(model_attr='first_name')
+	last_name = indexes.CharField(model_attr='last_name')
 
 	def get_model(self):
 		return Contact
