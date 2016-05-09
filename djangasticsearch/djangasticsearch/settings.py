@@ -42,6 +42,7 @@ INSTALLED_APPS = (
 
     'djangasticsearch',
     'contacts',
+    'words',
     'dummy_data',
     'search',
 )
