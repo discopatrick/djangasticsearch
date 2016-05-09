@@ -1,7 +1,7 @@
 from django.db import models
 
 class Word(models.Model):
-	text = models.TextField()
+	word_string = models.TextField()
 
 	def __str__(self):
-		return self.text
+		return self.word_string
