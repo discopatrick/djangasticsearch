@@ -42,6 +42,7 @@ INSTALLED_APPS = (
 
     'djangasticsearch',
     'contacts',
+    'words',
     'dummy_data',
     'search',
 )
@@ -112,7 +113,7 @@ STATIC_ROOT = '../static/'
 # https://randomuser.me/
 RANDOM_USER_API_KEY = open(os.path.join(BASE_DIR, '../secret/random_user_api_key.txt')).read().strip()
 RANDOM_USER_SEED = '123' # note: not all integers work as a seed, but this one does
-RANDOM_USER_COUNT = '10000'
+RANDOM_USER_COUNT = '5000'
 RANDOM_USER_LOCALE = 'gb'
 
 HAYSTACK_CONNECTIONS = {
