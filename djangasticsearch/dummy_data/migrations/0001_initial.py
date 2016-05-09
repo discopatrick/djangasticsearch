@@ -20,8 +20,8 @@ def import_contacts(apps, schema_data):
 
 	for result in r.json()['results']:
 		contact = Contact()
-		contact.first_name = result['user']['name']['first']
-		contact.last_name = result['user']['name']['last']
+		contact.first_name = result['name']['first']
+		contact.last_name = result['name']['last']
 		contact.save()
 
 class Migration(migrations.Migration):
